@@ -5,6 +5,7 @@ import { Background } from '@vue-flow/background'
 import { ControlButton, Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
 import { initialEdges, initialNodes } from './initial-elements.js'
+import { showHideNodes, showHideEdges } from './show-hide-elements.js'
 import Icon from './Icon.vue'
 
 /**
@@ -45,9 +46,20 @@ onNodeDragStop(({ event, nodes, node, intersections }) => {
   console.log('Node Drag Stop', { event, nodes, node, intersections })
 })
 
+let nodesHidden = true;
 onNodeClick(({ event, node, connectedEdges }) => {
   console.log('Node Click', { event, node, connectedEdges })
-  queryString.value = queryString.value + " + " + node.data.queryInfo;
+  if (node.data.queryInfo)
+  {
+    queryString.value = queryString.value + " + " + node.data.queryInfo;
+  }
+  if (node.data.showHide)
+  {
+    console.log("Show/hide Nodes")
+    nodesHidden = !nodesHidden
+    nodes.value = nodes.value.map((node) => ({ ...node, hidden: node.data.hiddable && nodesHidden }))
+    //edges.value = edges.value.map((edge) => ({ ...edge, hidden: edge.hiddable && nodesHidden }))
+  }
 })
 
 /**
@@ -94,13 +106,23 @@ function resetTransform() {
 function toggleDarkMode() {
   dark.value = !dark.value
 }
+
+function showShowHideNodes() {
+  // clear all nodes and edges
+  nodes.value = [];
+  edges.value = [];
+  // add new nodes and edges
+  nodes.value = showHideNodes;
+  edges.value = showHideEdges;
+}
+
 </script>
 
 <template>
   <div className="selection-container">
     <div>
       <button>Clickable Nodes</button>
-      <button>Show/Hide Nodes</button>
+      <button @click="showShowHideNodes">Show/Hide Nodes</button>
       <button>Schema -> Nodes</button>
     </div>
     <div className="info-container">
