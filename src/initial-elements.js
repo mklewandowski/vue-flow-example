@@ -5,27 +5,32 @@ export const initialNodes = [
     data: {
       queryInfo: 'query 1',
     },
+    hidden: false
   },
   { id: '2', type: 'output', label: 'Node 2', position: { x: 100, y: 100 }, class: 'light',
     data: {
       queryInfo: 'query 2',
     },
+    hidden: false
   },
   { id: '3', label: 'Node 3', position: { x: 400, y: 100 }, class: 'light',
-      data: {
-        queryInfo: 'query 3',
-      },
+    data: {
+      queryInfo: 'query 3',
     },
+    hidden: false
+  },
   { id: '4', label: 'Node 4', position: { x: 150, y: 200 }, class: 'light',
-      data: {
-        queryInfo: 'query 4',
-      },
+    data: {
+      queryInfo: 'query 4',
     },
+    hidden: false
+  },
   { id: '5', type: 'output', label: 'Node 5', position: { x: 300, y: 300 }, class: 'light',
-      data: {
-        queryInfo: 'query 5',
-      },
+    data: {
+      queryInfo: 'query 5',
     },
+    hidden: false
+  },
 ]
 
 export const initialEdges = [

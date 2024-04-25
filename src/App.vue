@@ -55,7 +55,7 @@ onNodeClick(({ event, node, connectedEdges }) => {
   }
   if (node.data.showHide)
   {
-    console.log("Show/hide Nodes")
+    console.log("Show/Hide Nodes")
     nodesHidden = !nodesHidden
     nodes.value = nodes.value.map((node) => ({ ...node, hidden: node.data.hiddable && nodesHidden }))
     //edges.value = edges.value.map((edge) => ({ ...edge, hidden: edge.hiddable && nodesHidden }))
@@ -107,7 +107,9 @@ function toggleDarkMode() {
   dark.value = !dark.value
 }
 
-function showShowHideNodes() {
+function showVariableVisibilityNodes() {
+  console.log("Show Variable Visibility Nodes")
+  nodesHidden = true;
   // clear all nodes and edges
   nodes.value = [];
   edges.value = [];
@@ -116,13 +118,23 @@ function showShowHideNodes() {
   edges.value = showHideEdges;
 }
 
+function showClickableNodes() {
+  console.log("Show Clickable Nodes")
+  // clear all nodes and edges
+  nodes.value = [];
+  edges.value = [];
+  // add new nodes and edges
+  nodes.value = initialNodes;
+  edges.value = initialEdges;
+}
+
 </script>
 
 <template>
   <div className="selection-container">
     <div>
-      <button>Clickable Nodes</button>
-      <button @click="showShowHideNodes">Show/Hide Nodes</button>
+      <button @click="showClickableNodes">Clickable Nodes</button>
+      <button @click="showVariableVisibilityNodes">Show/Hide Nodes</button>
       <button>Schema -> Nodes</button>
     </div>
     <div className="info-container">
