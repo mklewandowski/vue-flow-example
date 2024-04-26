@@ -1,6 +1,11 @@
 # vue-flow-example
 
-This template should help get you started developing with Vue 3 in Vite.
+An example Vue project that integrates the [Vue Flow library](https://vueflow.dev/). This project does the following:
+- Displays a Vue Flow diagram with nodes and edges.
+- Stores data in the `data` section of nodes and allows the data to be accessed when the node is clicked/selected.
+- Adds CSS styling to nodes.
+- Shows and hides nodes by clicking/selecting a key node.
+- Creates a set of nodes and edges based on a JSON schema that defines objects and relationships.
 
 ## Recommended IDE Setup
 
