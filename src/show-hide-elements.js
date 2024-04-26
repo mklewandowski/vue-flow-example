@@ -1,5 +1,5 @@
 export const showHideNodes = [
-  { id: '1', type: 'input', label: 'Click me to show/hide nodes', position: { x: 250, y: 100 }, class: 'light',
+  { id: '1', type: 'input', label: 'Click me to show/hide nodes', position: { x: 250, y: 25 }, class: 'light',
     data: {
       showHide: true,
       hiddable: false
@@ -7,7 +7,7 @@ export const showHideNodes = [
     hidden: false,
     style: {}
   },
-  { id: '2', type: 'output', label: 'I can be shown/hidden', position: { x: 50, y: 150 }, class: 'light',
+  { id: '2', type: 'output', label: 'I can be shown/hidden', position: { x: 150, y: 100 }, class: 'light',
     data: {
       showHide: false,
       hiddable: true
@@ -15,7 +15,7 @@ export const showHideNodes = [
     hidden: true,
     style: {}
   },
-  { id: '3', label: 'I can be shown/hidden', position: { x: 450, y: 150 }, class: 'light',
+  { id: '3', label: 'I can be shown/hidden', position: { x: 350, y: 100 }, class: 'light',
     data: {
       showHide: false,
       hiddable: true
@@ -23,7 +23,7 @@ export const showHideNodes = [
     hidden: true,
     style: {}
   },
-  { id: '4', label: 'I can be shown/hidden', position: { x: 250, y: 200 }, class: 'light',
+  { id: '4', label: 'I can be shown/hidden', position: { x: 250, y: 175 }, class: 'light',
     data: {
       showHide: false,
       hiddable: true

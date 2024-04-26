@@ -1,19 +1,19 @@
 export const styledNodes = [
-  { id: '1', type: 'input', label: 'Node 1', position: { x: 250, y: 100 }, class: 'light',
+  { id: '1', type: 'input', label: 'Node 1', position: { x: 250, y: 0 }, class: 'light',
     data: {
       queryInfo: 'query 1',
     },
     hidden: false,
     style: { backgroundColor: 'lightsalmon', width: '100px', height: '100px' },
   },
-  { id: '2', type: 'output', label: 'Node 2', position: { x: 100, y: 300 }, class: 'light',
+  { id: '2', type: 'output', label: 'Node 2', position: { x: 100, y: 100 }, class: 'light',
     data: {
       queryInfo: 'query 2',
     },
     hidden: false,
     style: { backgroundColor: 'lightpink', width: '100px', height: '100px', borderRadius: '50%' },
   },
-  { id: '3', label: 'Node 3', position: { x: 400, y: 300 }, class: 'light',
+  { id: '3', label: 'Node 3', position: { x: 400, y: 200 }, class: 'light',
     data: {
       queryInfo: 'query 3',
     },

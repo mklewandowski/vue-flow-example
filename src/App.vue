@@ -19,7 +19,7 @@ const nodes = ref(initialNodes)
 
 const edges = ref(initialEdges)
 
-const queryString = ref("QUERY: ")
+const queryString = ref("Click nodes to extract query info stored in data field: ")
 
 // our dark mode toggle flag
 const dark = ref(false)
@@ -128,7 +128,7 @@ function showClickableNodes() {
   // add new nodes and edges
   nodes.value = initialNodes;
   edges.value = initialEdges;
-  queryString.value = "These nodes can be clicked.";
+  queryString.value = "Click nodes to extract query info stored in data field: ";
 }
 
 function showStyledNodes() {
@@ -146,6 +146,10 @@ function showStyledNodes() {
 
 <template>
   <div className="selection-container">
+    <header>
+        <h1>Vue Flow Example</h1>
+        <h3>node diagram examples using the Vue Flow library</h3>
+    </header>
     <div>
       <button @click="showClickableNodes">Clickable Nodes</button>
       <button @click="showVariableVisibilityNodes">Show/Hide Nodes</button>

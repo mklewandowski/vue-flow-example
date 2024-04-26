@@ -6,28 +6,28 @@ export const initialNodes = [
     hidden: false,
     style: {}
   },
-  { id: '2', type: 'output', label: 'Node 2', position: { x: 100, y: 100 }, class: 'light',
+  { id: '2', type: 'output', label: 'Node 2', position: { x: 100, y: 75 }, class: 'light',
     data: {
       queryInfo: 'query 2',
     },
     hidden: false,
     style: {}
   },
-  { id: '3', label: 'Node 3', position: { x: 400, y: 100 }, class: 'light',
+  { id: '3', label: 'Node 3', position: { x: 400, y: 75 }, class: 'light',
     data: {
       queryInfo: 'query 3',
     },
     hidden: false,
     style: {}
   },
-  { id: '4', label: 'Node 4', position: { x: 150, y: 200 }, class: 'light',
+  { id: '4', label: 'Node 4', position: { x: 150, y: 150 }, class: 'light',
     data: {
       queryInfo: 'query 4',
     },
     hidden: false,
     style: {}
   },
-  { id: '5', type: 'output', label: 'Node 5', position: { x: 300, y: 300 }, class: 'light',
+  { id: '5', type: 'output', label: 'Node 5', position: { x: 300, y: 225 }, class: 'light',
     data: {
       queryInfo: 'query 5',
     },
