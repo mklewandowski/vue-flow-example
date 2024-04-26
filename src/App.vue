@@ -7,6 +7,7 @@ import { MiniMap } from '@vue-flow/minimap'
 import { initialEdges, initialNodes } from './initial-elements.js'
 import { showHideNodes, showHideEdges } from './show-hide-elements.js'
 import { styledNodes, styledEdges } from './styled-elements.js'
+import { schema } from './schema.js';
 import Icon from './Icon.vue'
 
 /**
@@ -142,6 +143,55 @@ function showStyledNodes() {
   queryString.value = "These nodes have CSS style applied to them.";
 }
 
+function showSchemaNodes() {
+  console.log("Show Schema Nodes")
+  // clear all nodes and edges
+  nodes.value = [];
+  edges.value = [];
+  // add new nodes and edges
+  console.log(schema);
+  let nodeId = 0;
+  let newNodes = [];
+  let newEdges = [];
+
+  // find all of the main proprties that will become nodes
+  for (const property in schema) {
+    // console.log(`${property}: ${schema[property]}`);
+    let node =
+      { id: nodeId.toString(), label: schema[property].EntityType, position: { x: 100, y: nodeId * 50 }, class: 'light',
+        data: {
+          queryInfo: 'query 1',
+        },
+        hidden: false,
+        style: {}
+      };
+    newNodes.push(node);
+    nodeId++;
+  }
+
+  // find all of the relationships that will become edges
+  let edgeId = 0;
+  for (const property in schema) {
+    // console.log(`${property}: ${schema[property]}`);
+    if (schema[property].Relationships)
+    {
+      // console.log(schema[property].Relationships);
+      for (const rel of schema[property].Relationships)
+      {
+        const index1 = newNodes.findIndex((el) => (el.label == rel.type));
+        const index2 = newNodes.findIndex((el) => (el.label == schema[property].EntityType));
+        console.log(`${index1},${index2}`);
+        let edge = { id: edgeId.toString(), source: index1.toString(), target: index2.toString(), animated: true };
+        newEdges.push(edge);
+        edgeId++;
+      }
+    }
+  }
+  nodes.value = newNodes;
+  edges.value = newEdges;
+  queryString.value = "These nodes have been created from a schema.";
+}
+
 </script>
 
 <template>
@@ -154,7 +204,7 @@ function showStyledNodes() {
       <button @click="showClickableNodes">Clickable Nodes</button>
       <button @click="showVariableVisibilityNodes">Show/Hide Nodes</button>
       <button @click="showStyledNodes">Styled Nodes</button>
-      <button>Schema -> Nodes</button>
+      <button @click="showSchemaNodes">Schema -> Nodes</button>
     </div>
     <div className="info-container">
       {{ queryString }}
