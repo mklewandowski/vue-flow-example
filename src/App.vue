@@ -6,6 +6,7 @@ import { ControlButton, Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
 import { initialEdges, initialNodes } from './initial-elements.js'
 import { showHideNodes, showHideEdges } from './show-hide-elements.js'
+import { styledNodes, styledEdges } from './styled-elements.js'
 import Icon from './Icon.vue'
 
 /**
@@ -116,6 +117,7 @@ function showVariableVisibilityNodes() {
   // add new nodes and edges
   nodes.value = showHideNodes;
   edges.value = showHideEdges;
+  queryString.value = "These nodes can be shown and hidden by clicking on the center node.";
 }
 
 function showClickableNodes() {
@@ -126,6 +128,18 @@ function showClickableNodes() {
   // add new nodes and edges
   nodes.value = initialNodes;
   edges.value = initialEdges;
+  queryString.value = "These nodes can be clicked.";
+}
+
+function showStyledNodes() {
+  console.log("Show Styled Nodes")
+  // clear all nodes and edges
+  nodes.value = [];
+  edges.value = [];
+  // add new nodes and edges
+  nodes.value = styledNodes;
+  edges.value = styledEdges;
+  queryString.value = "These nodes have CSS style applied to them.";
 }
 
 </script>
@@ -135,6 +149,7 @@ function showClickableNodes() {
     <div>
       <button @click="showClickableNodes">Clickable Nodes</button>
       <button @click="showVariableVisibilityNodes">Show/Hide Nodes</button>
+      <button @click="showStyledNodes">Styled Nodes</button>
       <button>Schema -> Nodes</button>
     </div>
     <div className="info-container">
